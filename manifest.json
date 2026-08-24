@@ -1,0 +1,13 @@
+{
+  "name": "Piscines Clisson & alentours",
+  "short_name": "Piscines",
+  "description": "Horaires et tarifs des piscines autour de Clisson, mis à jour automatiquement.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f7f8",
+  "theme_color": "#0d6e8f",
+  "icons": [
+    { "src": "icon.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

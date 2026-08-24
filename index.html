@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Piscines Clisson &amp; alentours</title>
+<meta name="description" content="Horaires et tarifs des piscines autour de Clisson, mis à jour automatiquement.">
+<meta name="theme-color" content="#0d6e8f">
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Piscines">
+<link rel="apple-touch-icon" href="icon.png">
+<style>
+  :root{
+    color-scheme: light dark;
+    --bg:#f4f7f8;
+    --card:#ffffff;
+    --text:#16232a;
+    --muted:#5b6b73;
+    --accent:#0d6e8f;
+    --accent-soft:#e4f1f5;
+    --ok:#1b8a5a;
+    --warn:#b5790a;
+    --err:#c23b3b;
+    --border:#e2e8ea;
+    --today-bg:#fff3d6;
+    --closed:#a24444;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0f1719;
+      --card:#172225;
+      --text:#eaf1f3;
+      --muted:#93a5ac;
+      --accent:#5fc4e8;
+      --accent-soft:#132a32;
+      --border:#25363b;
+      --today-bg:#3a2c10;
+      --closed:#e08787;
+    }
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:3rem;
+  }
+  header{
+    padding:1.4rem 1.1rem 1rem;
+    max-width:720px;
+    margin:0 auto;
+  }
+  h1{
+    font-size:1.5rem;
+    margin:0 0 .2rem;
+    display:flex;
+    align-items:center;
+    gap:.5rem;
+  }
+  .subtitle{
+    color:var(--muted);
+    font-size:.92rem;
+    margin:0;
+  }
+  .refresh-banner{
+    max-width:720px;
+    margin:.8rem auto 0;
+    padding:0 1.1rem;
+    font-size:.82rem;
+    color:var(--muted);
+  }
+  .refresh-banner.err{ color:var(--warn); }
+  main{
+    max-width:720px;
+    margin:0 auto;
+    padding:.6rem 1.1rem 0;
+    display:flex;
+    flex-direction:column;
+    gap:.9rem;
+  }
+
+  /* --- Tableau de synthèse --- */
+  .summary-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:1rem 1.1rem 1.1rem;
+    box-shadow:0 1px 2px rgba(0,0,0,.04);
+  }
+  .summary-title{
+    font-size:1.05rem;
+    font-weight:650;
+    margin:0 0 .2rem;
+  }
+  .today-line{
+    font-size:.85rem;
+    color:var(--muted);
+    margin:0 0 .7rem;
+  }
+  .today-line strong{ color:var(--text); }
+  .holiday-note{
+    display:inline-block;
+    margin-top:.3rem;
+    font-size:.78rem;
+    color:var(--warn);
+  }
+  .tabs{
+    display:flex;
+    gap:.4rem;
+    margin-bottom:.8rem;
+    flex-wrap:wrap;
+  }
+  .tab-btn{
+    border:1px solid var(--border);
+    background:transparent;
+    color:var(--muted);
+    padding:.4rem .75rem;
+    border-radius:999px;
+    font-size:.82rem;
+    font-weight:600;
+    cursor:pointer;
+  }
+  .tab-btn.active{
+    background:var(--accent);
+    border-color:var(--accent);
+    color:#fff;
+  }
+  .table-scroll{
+    overflow-x:auto;
+    border-radius:10px;
+    border:1px solid var(--border);
+    -webkit-overflow-scrolling:touch;
+  }
+  table.summary-table{
+    border-collapse:collapse;
+    width:100%;
+    font-size:.78rem;
+    min-width:560px;
+  }
+  table.summary-table th, table.summary-table td{
+    padding:.5rem .55rem;
+    text-align:left;
+    border-bottom:1px solid var(--border);
+    white-space:normal;
+    line-height:1.3;
+  }
+  table.summary-table th{
+    background:var(--accent-soft);
+    color:var(--text);
+    font-weight:650;
+    font-size:.74rem;
+    position:sticky;
+    top:0;
+  }
+  table.summary-table thead th button{
+    background:none;
+    border:none;
+    color:inherit;
+    font:inherit;
+    font-weight:inherit;
+    padding:0;
+    cursor:pointer;
+    text-align:left;
+  }
+  table.summary-table thead th button:hover{ text-decoration:underline; }
+  table.summary-table td.day-cell, table.summary-table th.day-th{
+    position:sticky;
+    left:0;
+    background:var(--card);
+    font-weight:650;
+    z-index:1;
+    min-width:5.2rem;
+  }
+  table.summary-table th.day-th{ background:var(--accent-soft); z-index:2; }
+  table.summary-table tr.today td{ background:var(--today-bg); }
+  table.summary-table tr.today td.day-cell{ background:var(--today-bg); }
+  .closed-cell{ color:var(--closed); font-weight:600; }
+  .unknown-cell{ color:var(--muted); font-style:italic; }
+
+  /* --- Cartes détail --- */
+  .card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:1rem 1.1rem 1.1rem;
+    box-shadow:0 1px 2px rgba(0,0,0,.04);
+    scroll-margin-top:1rem;
+  }
+  .card-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:.6rem;
+  }
+  .card-title{
+    font-size:1.08rem;
+    font-weight:650;
+    margin:0;
+  }
+  .card-ville{
+    color:var(--muted);
+    font-size:.85rem;
+    margin:.1rem 0 0;
+  }
+  .badge{
+    font-size:.72rem;
+    padding:.22rem .55rem;
+    border-radius:999px;
+    white-space:nowrap;
+    font-weight:600;
+    background:var(--accent-soft);
+    color:var(--accent);
+  }
+  .badge.stale, .badge.partiel{ background:#fbe9cf; color:var(--warn); }
+  .badge.erreur{ background:#f7dede; color:var(--err); }
+  @media (prefers-color-scheme: dark){
+    .badge.stale, .badge.partiel{ background:#3a2c10; }
+    .badge.erreur{ background:#3a1616; }
+  }
+  details{
+    margin-top:.7rem;
+    border-top:1px solid var(--border);
+    padding-top:.6rem;
+  }
+  summary{
+    cursor:pointer;
+    font-weight:600;
+    font-size:.92rem;
+    color:var(--accent);
+    list-style:none;
+    display:flex;
+    align-items:center;
+    gap:.4rem;
+  }
+  summary::-webkit-details-marker{ display:none; }
+  summary::before{
+    content:"›";
+    display:inline-block;
+    transition:transform .15s ease;
+    font-size:1.1em;
+  }
+  details[open] summary::before{ transform:rotate(90deg); }
+  .content{
+    font-size:.9rem;
+    line-height:1.5;
+    margin-top:.55rem;
+    white-space:pre-wrap;
+  }
+  .content h3{ font-size:.88rem; margin:.7rem 0 .2rem; color:var(--text); }
+  .content ul{ margin:.2rem 0; padding-left:1.1rem; }
+  .meta-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.5rem 1rem;
+    margin-top:.8rem;
+    font-size:.78rem;
+    color:var(--muted);
+  }
+  .meta-row a{ color:var(--accent); text-decoration:none; }
+  .meta-row a:hover{ text-decoration:underline; }
+  footer{
+    max-width:720px;
+    margin:1.6rem auto 0;
+    padding:0 1.1rem;
+    color:var(--muted);
+    font-size:.78rem;
+    text-align:center;
+  }
+  .loading, .error-box{
+    max-width:720px;
+    margin:1rem auto;
+    padding:1rem 1.1rem;
+    color:var(--muted);
+    text-align:center;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>🏊 Piscines — Clisson &amp; alentours</h1>
+  <p class="subtitle">Horaires et tarifs, mis à jour automatiquement depuis les sites officiels.</p>
+</header>
+<div id="refresh-banner" class="refresh-banner"></div>
+<main>
+  <div id="summary-section"></div>
+  <div id="pools">
+    <div class="loading">Chargement…</div>
+  </div>
+</main>
+<footer>
+  Source : sites officiels de chaque piscine, relus automatiquement.<br>
+  En cas de doute avant un déplacement, vérifie toujours le lien « site officiel » de la piscine.
+</footer>
+
+<script>
+const DAY_KEYS = ['lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche'];
+const DAY_LABELS = {lundi:'Lundi', mardi:'Mardi', mercredi:'Mercredi', jeudi:'Jeudi', vendredi:'Vendredi', samedi:'Samedi', dimanche:'Dimanche'};
+const PERIOD_LABELS = {scolaire:'Période scolaire', petites_vacances:'Petites vacances', ete:'Vacances d’été'};
+
+// Calendrier zone B (Nantes) 2026-2027 — utilisé pour deviner la période
+// actuelle et signaler les jours fériés. Approximatif : peut différer de
+// quelques jours d'une piscine à l'autre selon ses propres dates exactes —
+// dans le doute, change simplement d'onglet manuellement.
+const VACATION_RANGES = [
+  { key: 'ete',              start: '2026-07-04', end: '2026-08-31' },
+  { key: 'petites_vacances', start: '2026-10-17', end: '2026-11-02' }, // Toussaint
+  { key: 'petites_vacances', start: '2026-12-19', end: '2027-01-04' }, // Noël
+  { key: 'petites_vacances', start: '2027-02-20', end: '2027-03-08' }, // Hiver
+  { key: 'petites_vacances', start: '2027-04-17', end: '2027-05-03' }, // Printemps
+  { key: 'ete',              start: '2027-07-03', end: '2027-08-31' },
+];
+const FRENCH_HOLIDAYS = [
+  '2026-01-01','2026-04-06','2026-05-01','2026-05-08','2026-05-14','2026-05-25','2026-07-14','2026-08-15','2026-11-01','2026-11-11','2026-12-25',
+  '2027-01-01','2027-03-29','2027-05-01','2027-05-06','2027-05-08','2027-05-17','2027-07-14','2027-08-15','2027-11-01','2027-11-11','2027-12-25',
+];
+
+function isoDate(d) {
+  return d.toISOString().slice(0, 10);
+}
+
+function currentPeriodKey(now) {
+  const iso = isoDate(now);
+  for (const r of VACATION_RANGES) {
+    if (iso >= r.start && iso <= r.end) return r.key;
+  }
+  return 'scolaire';
+}
+
+function isHolidayToday(now) {
+  return FRENCH_HOLIDAYS.includes(isoDate(now));
+}
+
+let currentData = null;
+let selectedPeriod = null;
+
+async function load() {
+  const poolsEl = document.getElementById('pools');
+  const banner = document.getElementById('refresh-banner');
+  try {
+    const res = await fetch('data/pools.json?_=' + Date.now());
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    currentData = await res.json();
+    selectedPeriod = currentPeriodKey(new Date());
+    renderSummary();
+    renderCards();
+    renderBanner(banner);
+  } catch (e) {
+    poolsEl.innerHTML = '<div class="error-box">Impossible de charger les données (' + e.message + '). Réessaie un peu plus tard.</div>';
+  }
+}
+
+function renderBanner(banner) {
+  if (currentData.any_error) {
+    banner.classList.add('err');
+    banner.textContent = "⚠️ Certaines piscines n'ont pas pu être vérifiées lors de la dernière mise à jour — les infos affichées peuvent être un peu anciennes pour celles-ci.";
+  } else {
+    banner.textContent = 'Dernière vérification globale : ' + timeAgo(currentData.generated_at) + '.';
+  }
+}
+
+function timeAgo(iso) {
+  if (!iso) return 'jamais';
+  const diffMs = Date.now() - new Date(iso).getTime();
+  const mins = Math.round(diffMs / 60000);
+  if (mins < 60) return `il y a ${mins} min`;
+  const hours = Math.round(mins / 60);
+  if (hours < 48) return `il y a ${hours} h`;
+  const days = Math.round(hours / 24);
+  return `il y a ${days} j`;
+}
+
+function scrollToPool(id) {
+  const el = document.getElementById('pool-' + id);
+  if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); el.querySelector('details')?.setAttribute('open',''); }
+}
+
+function renderSummary() {
+  const now = new Date();
+  const todayKey = DAY_KEYS[(now.getDay() + 6) % 7]; // getDay(): 0=dimanche
+  const pools = [...currentData.pools].sort((a, b) => a.priority - b.priority);
+  const dateLabel = now.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' });
+
+  const tabs = Object.keys(PERIOD_LABELS).map(key => `
+    <button class="tab-btn ${key === selectedPeriod ? 'active' : ''}" data-period="${key}" onclick="selectPeriod('${key}')">${PERIOD_LABELS[key]}</button>
+  `).join('');
+
+  const headerCells = pools.map(p => `<th><button onclick="scrollToPool('${p.id}')" title="Voir le détail">${p.ville}</button></th>`).join('');
+
+  const rows = DAY_KEYS.map(day => {
+    const isToday = day === todayKey;
+    const cells = pools.map(p => {
+      const sched = (p.schedule || {})[selectedPeriod] || {};
+      const val = sched[day];
+      if (!val) return '<td class="unknown-cell">voir détail</td>';
+      const cls = /ferm/i.test(val) ? 'closed-cell' : '';
+      return `<td class="${cls}">${val}</td>`;
+    }).join('');
+    return `<tr class="${isToday ? 'today' : ''}"><td class="day-cell">${DAY_LABELS[day]}${isToday ? ' 👉' : ''}</td>${cells}</tr>`;
+  }).join('');
+
+  const holiday = isHolidayToday(now)
+    ? '<div class="holiday-note">⚠️ Aujourd’hui est un jour férié : la plupart des piscines ont des horaires réduits ou sont fermées, même si le tableau ci-dessous montre les horaires habituels de ce jour de semaine. Vérifie le détail de chaque piscine.</div>'
+    : '';
+
+  document.getElementById('summary-section').innerHTML = `
+    <div class="summary-card">
+      <p class="summary-title">Vue d'ensemble — toute la semaine</p>
+      <p class="today-line">Aujourd'hui : <strong>${dateLabel}</strong> — période détectée : <strong>${PERIOD_LABELS[selectedPeriod]}</strong>${holiday}</p>
+      <div class="tabs">${tabs}</div>
+      <div class="table-scroll">
+        <table class="summary-table">
+          <thead><tr><th class="day-th">Jour</th>${headerCells}</tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
+
+function selectPeriod(key) {
+  selectedPeriod = key;
+  renderSummary();
+}
+
+function mdToHtml(md) {
+  if (!md) return '<p><em>Info non disponible pour le moment — voir le site officiel.</em></p>';
+  const escaped = md
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+  const lines = escaped.split('\n');
+  let html = '';
+  let inList = false;
+  for (const raw of lines) {
+    const line = raw.trim();
+    if (!line) { if (inList) { html += '</ul>'; inList = false; } continue; }
+    const h = line.match(/^(#{1,4})\s+(.*)$/);
+    if (h) {
+      if (inList) { html += '</ul>'; inList = false; }
+      html += `<h3>${h[2]}</h3>`;
+      continue;
+    }
+    if (/^[-*]\s+/.test(line)) {
+      if (!inList) { html += '<ul>'; inList = true; }
+      html += `<li>${line.replace(/^[-*]\s+/, '')}</li>`;
+      continue;
+    }
+    if (inList) { html += '</ul>'; inList = false; }
+    html += `<p>${line}</p>`;
+  }
+  if (inList) html += '</ul>';
+  return html || '<p><em>Info non disponible pour le moment.</em></p>';
+}
+
+function statusBadge(status) {
+  const map = {
+    ok: 'À jour',
+    seed: 'Première version',
+    stale: 'Info non rafraîchie',
+    partiel: 'Partiellement à jour',
+    erreur: 'Erreur de vérification',
+  };
+  const cls = status === 'ok' || status === 'seed' ? '' : status;
+  return `<span class="badge ${cls}">${map[status] || status}</span>`;
+}
+
+function renderCards() {
+  const container = document.getElementById('pools');
+  const pools = [...currentData.pools].sort((a, b) => a.priority - b.priority);
+  container.innerHTML = pools.map(p => `
+    <div class="card" id="pool-${p.id}">
+      <div class="card-head">
+        <div>
+          <p class="card-title">${p.name}</p>
+          <p class="card-ville">${p.ville}${p.adresse ? ' · ' + p.adresse : ''}</p>
+        </div>
+        ${statusBadge(p.status)}
+      </div>
+      <details>
+        <summary>Horaires (détail complet)</summary>
+        <div class="content">${mdToHtml(p.horaires_text)}</div>
+      </details>
+      <details>
+        <summary>Tarifs</summary>
+        <div class="content">${mdToHtml(p.tarifs_text)}</div>
+      </details>
+      <div class="meta-row">
+        <span>Vérifié ${timeAgo(p.last_checked)}</span>
+        ${p.phone ? `<span>☎ ${p.phone}</span>` : ''}
+        <a href="${p.official_url}" target="_blank" rel="noopener">Site officiel ↗</a>
+      </div>
+    </div>
+  `).join('');
+}
+
+load();
+</script>
+</body>
+</html>

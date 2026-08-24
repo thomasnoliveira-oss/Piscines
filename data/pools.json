@@ -1,0 +1,139 @@
+{
+  "generated_at": "2026-08-24T12:00:00+00:00",
+  "any_error": false,
+  "seed": true,
+  "pools": [
+    {
+      "id": "clisson",
+      "name": "Aqua'val Sèvre",
+      "ville": "Clisson",
+      "priority": 1,
+      "phone": "02 40 54 24 56",
+      "adresse": "Esplanade de Klettgau, 44190 Clisson",
+      "official_url": "https://www.piscines-aquaval.fr/nos-piscines/nos-piscines/aquaval-sevre-a-clisson",
+      "horaires_url": "https://www.piscines-aquaval.fr/nos-piscines/nos-piscines/les-horaires",
+      "tarifs_url": "https://www.piscines-aquaval.fr/nos-piscines/nos-piscines/tarifs",
+      "status": "seed",
+      "schedule_status": "ok",
+      "last_checked": "2026-08-24T12:00:00+00:00",
+      "last_success": "2026-08-24T12:00:00+00:00",
+      "schedule": {
+        "scolaire": {"lundi": "Fermé", "mardi": "11h-13h45 et 15h-20h", "mercredi": "11h-13h45 et 15h-20h", "jeudi": "11h-13h45 et 15h-20h", "vendredi": "11h-13h45 et 15h-20h", "samedi": "14h30-18h", "dimanche": "9h-13h"},
+        "petites_vacances": {"lundi": "Fermé", "mardi": "11h-13h45 et 15h-20h", "mercredi": "11h-13h45 et 15h-20h", "jeudi": "11h-13h45 et 15h-20h", "vendredi": "11h-13h45 et 15h-20h", "samedi": "14h30-18h", "dimanche": "9h-13h"},
+        "ete": {"lundi": "Fermé", "mardi": "12h-13h45", "mercredi": "12h-13h45 et 14h30-18h", "jeudi": "12h-13h45 et 18h-21h", "vendredi": "12h-13h45 et 18h-21h", "samedi": "14h30-18h", "dimanche": "9h-13h"}
+      },
+      "horaires_text": "### Vacances d'été (4 juillet - 30 août 2026)\n- Lundi : Fermé\n- Mardi : 12h-13h45\n- Mercredi : 12h-13h45 et 14h30-18h\n- Jeudi-Vendredi : 12h-13h45 et 18h-21h\n- Samedi : 14h30-18h\n- Dimanche : 9h-13h\n\n### Période scolaire\n- Lundi : Fermé\n- Mardi-Vendredi : 11h-13h45 et 15h-20h\n- Samedi : 14h30-18h\n- Dimanche : 9h-13h\n\n### Petites vacances\nMêmes horaires que la période scolaire.\n\n*Les bassins extérieurs sont inaccessibles (travaux avant fermeture 2028). Fermé les jours fériés sauf 14 juillet et 15 août.*",
+      "tarifs_text": "- Junior (3-16 ans) : 3,80€\n- Adulte (16+) : 4,80€\n- Adulte tarif réduit : 4,20€\n- Carte famille (4 pers.) : 14,50€\n- Sauna/hammam : de 3,40€ à 8,20€ selon formule\n\n*Tarifs valables du 1er juillet 2025 au 30 juin 2027.*"
+    },
+    {
+      "id": "aigrefeuille",
+      "name": "Aqua'val Maine",
+      "ville": "Aigrefeuille-sur-Maine",
+      "priority": 2,
+      "phone": "02 40 54 24 56",
+      "adresse": "Rue du Fief, 44140 Aigrefeuille-sur-Maine",
+      "official_url": "https://www.piscines-aquaval.fr/nos-piscines/nos-piscines/aquaval-maine-a-aigrefeuille-sur-maine",
+      "horaires_url": "https://www.piscines-aquaval.fr/nos-piscines/nos-piscines/les-horaires",
+      "tarifs_url": "https://www.piscines-aquaval.fr/nos-piscines/nos-piscines/tarifs",
+      "status": "seed",
+      "schedule_status": "ok",
+      "last_checked": "2026-08-24T12:00:00+00:00",
+      "last_success": "2026-08-24T12:00:00+00:00",
+      "schedule": {
+        "scolaire": {"lundi": "11h-13h45 et 15h-20h", "mardi": "11h-13h45 et 15h-20h", "mercredi": "11h-13h45 et 15h-20h", "jeudi": "11h-13h45 et 15h-20h", "vendredi": "Fermé", "samedi": "14h30-18h", "dimanche": "9h-13h et 14h30-18h"},
+        "petites_vacances": {"lundi": "11h-13h45 et 15h-20h", "mardi": "11h-13h45 et 15h-20h", "mercredi": "11h-13h45 et 15h-20h", "jeudi": "11h-13h45 et 15h-20h", "vendredi": "Fermé", "samedi": "14h30-18h", "dimanche": "9h-13h et 14h30-18h"},
+        "ete": {"lundi": "9h-13h45 et 18h-21h", "mardi": "12h-13h45 et 17h30-21h", "mercredi": "10h30-13h45 et 14h30-18h", "jeudi": "12h-13h45", "vendredi": "Fermé", "samedi": "14h30-18h", "dimanche": "10h30-13h et 14h30-18h"}
+      },
+      "horaires_text": "### Vacances d'été\n- Lundi : 9h-13h45 et 18h-21h (tous espaces)\n- Mardi : 12h-13h45 et 17h30-21h\n- Mercredi : 10h30-13h45 et 14h30-18h\n- Jeudi : 12h-13h45\n- Vendredi : Fermé\n- Samedi : 14h30-18h\n- Dimanche : 10h30-13h et 14h30-18h\n\n### Période scolaire et petites vacances\n- Lundi-Jeudi : 11h-13h45 et 15h-20h\n- Vendredi : Fermé\n- Samedi : 14h30-18h\n- Dimanche : 9h-13h et 14h30-18h\n\n*Le hammam est actuellement inaccessible. Fermé les jours fériés sauf 14 juillet et 15 août.*",
+      "tarifs_text": "- Junior : 4,10€\n- Adulte : 5,60€\n- Adulte tarif réduit : 5,10€\n- Carte famille : 16,50€\n- Espace bien-être (balnéo) : de 6,10€ à 11,70€\n\n*Tarifs valables du 1er juillet 2025 au 30 juin 2027.*"
+    },
+    {
+      "id": "vertou",
+      "name": "Piscine municipale de Vertou",
+      "ville": "Vertou",
+      "priority": 3,
+      "phone": "",
+      "adresse": "",
+      "official_url": "https://vertou.horanet.com/sites/piscine-municipale-de-vertou-1/",
+      "horaires_url": "https://vertou.horanet.com/sites/piscine-municipale-de-vertou-1/",
+      "tarifs_url": "https://vertou.horanet.com/sites/piscine-municipale-de-vertou-1/",
+      "status": "seed",
+      "schedule_status": "ok",
+      "last_checked": "2026-08-24T12:00:00+00:00",
+      "last_success": "2026-08-24T12:00:00+00:00",
+      "schedule": {
+        "scolaire": {"lundi": "12h30-13h30 et 19h15-20h30", "mardi": "12h30-13h30 et 19h15-20h30", "mercredi": "12h30-16h et 19h15-20h30", "jeudi": "12h30-13h30 et 19h15-20h30", "vendredi": "12h30-13h30 et 19h15-20h30", "samedi": "11h-12h30 et 15h15-18h30", "dimanche": "10h15-12h30"},
+        "petites_vacances": {"lundi": "12h30-14h et 15h30-19h", "mardi": "12h30-14h et 15h30-19h", "mercredi": "12h30-14h et 15h30-19h", "jeudi": "12h30-14h et 15h30-19h", "vendredi": "12h30-14h et 15h30-19h", "samedi": "11h-12h30 et 15h15-18h30", "dimanche": "10h15-12h30"},
+        "ete": {"lundi": "12h30-14h et 15h30-19h", "mardi": "12h30-14h et 15h30-19h", "mercredi": "12h30-14h et 15h30-19h", "jeudi": "12h30-14h et 15h30-19h", "vendredi": "12h30-14h et 15h30-19h", "samedi": "11h-12h30 et 15h15-18h30", "dimanche": "Fermée"}
+      },
+      "horaires_text": "### Période scolaire (septembre-juin)\n- Lundi, mardi, jeudi, vendredi : 12h30-13h30 et 19h15-20h30\n- Mercredi : 12h30-16h et 19h15-20h30\n- Samedi : 11h-12h30 et 15h15-18h30\n- Dimanche : 10h15-12h30\n\n### Petites vacances\n- Lundi-vendredi : 12h30-14h et 15h30-19h\n- Samedi : 11h-12h30 et 15h15-18h30\n- Dimanche : 10h15-12h30\n\n### Grandes vacances\n- Lundi-vendredi : 12h30-14h et 15h30-19h\n- Samedi : 11h-12h30 et 15h15-18h30\n- Dimanche : Fermée",
+      "tarifs_text": "- Entrée plein tarif : 4,10€\n- Entrée tarif réduit : 2,40€\n- Moins de 8 ans : 1,30€\n- Carte annuelle plein tarif : 100€ / réduit : 61,60€\n- Lot de 10 entrées (plein tarif) : 31,60€"
+    },
+    {
+      "id": "vallet",
+      "name": "Naïadolis",
+      "ville": "Vallet",
+      "priority": 4,
+      "phone": "02 51 71 92 12",
+      "adresse": "7 bis Boulevard Evariste Dejoie, 44330 Vallet",
+      "official_url": "https://piscine.cc-sevreloire.fr/",
+      "horaires_url": "https://piscine.cc-sevreloire.fr/horaires/",
+      "tarifs_url": "https://piscine.cc-sevreloire.fr/tarifs/",
+      "status": "seed",
+      "schedule_status": "ok",
+      "last_checked": "2026-08-24T12:00:00+00:00",
+      "last_success": "2026-08-24T12:00:00+00:00",
+      "schedule": {
+        "scolaire": {"lundi": "11h45-14h", "mardi": "11h45-13h et 18h30-21h", "mercredi": "16h-18h30", "jeudi": "11h45-13h", "vendredi": "11h45-14h et 16h-21h", "samedi": "14h-18h", "dimanche": "8h30-13h30"},
+        "petites_vacances": {"lundi": "10h45-13h45 et 15h-19h", "mardi": "10h45-13h45 et 15h-19h", "mercredi": "10h45-13h45 et 15h-19h", "jeudi": "10h45-13h45 et 15h-19h", "vendredi": "10h45-13h45 et 15h-19h", "samedi": "14h-18h", "dimanche": "8h30-13h30"},
+        "ete": {"lundi": "10h45-13h45 et 15h-20h", "mardi": "10h45-13h45 et 15h-20h", "mercredi": "10h45-13h45 et 15h-20h", "jeudi": "10h45-13h45 et 15h-20h", "vendredi": "10h45-13h45 et 15h-20h", "samedi": "14h-18h", "dimanche": "9h30-12h30 et 14h-18h"}
+      },
+      "horaires_text": "### Période scolaire\n- Lun : 11h45-14h\n- Mar : 11h45-13h et 18h30-21h\n- Mer : 16h-18h30\n- Jeu : 11h45-13h\n- Ven : 11h45-14h et 16h-21h\n- Sam : 14h-18h\n- Dim : 8h30-13h30\n\n### Petites vacances\n- Lun-Ven : 10h45-13h45 et 15h-19h\n- Sam : 14h-18h / Dim : 8h30-13h30\n\n### Été (1er juillet - 31 août 2026)\n- Lun-Ven : 10h45-13h45 et 15h-20h\n- Sam : 14h-18h / Dim : 9h30-12h30 et 14h-18h\n\n*Fermé les jours fériés sauf 14 juillet et 15 août. Fermeture exceptionnelle de l'espace Balnéo du 31 août au 11 septembre 2026.*",
+      "tarifs_text": "- Moins de 4 ans : gratuit\n- 4-17 ans : 3,90€ (ou 29€ les 10 entrées)\n- Adulte (18+) : 4,90€ (ou 39€ les 10 entrées)\n- Formule famille (ex: 2 adultes + 2 enfants) : 14,20€\n- Espace bien-être (jacuzzi/sauna) : 3,10€ la séance"
+    },
+    {
+      "id": "loroux",
+      "name": "Divaquatic",
+      "ville": "Le Loroux-Bottereau",
+      "priority": 5,
+      "phone": "02 51 71 92 12",
+      "adresse": "Rue du Square, 44430 Le Loroux-Bottereau",
+      "official_url": "https://piscine.cc-sevreloire.fr/",
+      "horaires_url": "https://piscine.cc-sevreloire.fr/horaires/",
+      "tarifs_url": "https://piscine.cc-sevreloire.fr/tarifs/",
+      "status": "seed",
+      "schedule_status": "ok",
+      "last_checked": "2026-08-24T12:00:00+00:00",
+      "last_success": "2026-08-24T12:00:00+00:00",
+      "schedule": {
+        "scolaire": {"lundi": "11h45-14h et 19h-21h (bassin ext. le soir)", "mardi": "11h45-14h", "mercredi": "16h-18h45", "jeudi": "11h45-14h et 19h-21h (bassin ext. le soir)", "vendredi": "11h45-14h et 17h-21h", "samedi": "14h-18h", "dimanche": "8h30-13h30"},
+        "petites_vacances": {"lundi": "10h45-13h45 et 15h-19h", "mardi": "10h45-13h45 et 15h-19h", "mercredi": "10h45-13h45 et 15h-19h", "jeudi": "10h45-13h45 et 15h-21h", "vendredi": "10h45-13h45 et 15h-19h", "samedi": "14h-18h", "dimanche": "8h30-13h30"},
+        "ete": {"lundi": "10h45-13h45 et 15h-20h", "mardi": "10h45-13h45 et 15h-20h", "mercredi": "10h45-13h45 et 15h-20h", "jeudi": "10h45-13h45 et 15h-20h", "vendredi": "10h45-13h45 et 15h-20h", "samedi": "14h-18h", "dimanche": "9h30-12h30 et 14h-18h"}
+      },
+      "horaires_text": "### Période scolaire\n- Lundi : 11h45-14h / 19h-21h (bassin extérieur uniquement en soirée)\n- Mardi : 11h45-14h\n- Mercredi : 16h-18h45\n- Jeudi : 11h45-14h / 19h-21h (bassin extérieur uniquement en soirée)\n- Vendredi : 11h45-14h / 17h-21h\n- Samedi : 14h-18h\n- Dimanche : 8h30-13h30\n\n### Petites vacances scolaires\n- Lundi-Mercredi et Vendredi : 10h45-13h45 / 15h-19h\n- Jeudi : 10h45-13h45 / 15h-21h\n- Samedi : 14h-18h / Dimanche : 8h30-13h30\n\n### Vacances d'été (4 juillet - 31 août 2026)\n- Lundi-Vendredi : 10h45-13h45 / 15h-20h\n- Samedi : 14h-18h / Dimanche : 9h30-12h30 / 14h-18h\n- 14 juillet : 10h45-13h45 / 15h-18h — 15 août : 14h-18h\n\n*Billetterie fermée 30 min avant la fermeture. Fermé les jours fériés sauf 14 juillet et 15 août.*",
+      "tarifs_text": "- Moins de 4 ans : gratuit\n- 4-17 ans : 3,90€ (ou 29€ les 10 entrées)\n- Adulte (18+) : 4,90€ (ou 39€ les 10 entrées)\n- Formule famille : 14,20€\n- Tarifs communs avec Naïadolis (même structure intercommunale)"
+    },
+    {
+      "id": "goulaine",
+      "name": "SO.POOL Goulaine",
+      "ville": "Basse-Goulaine",
+      "priority": 6,
+      "phone": "09 71 00 44 00",
+      "adresse": "2 rue de Tasmanie, 44115 Basse-Goulaine",
+      "official_url": "https://www.sopool.fr/",
+      "horaires_url": "https://www.sopool.fr/",
+      "tarifs_url": "https://www.sopool.fr/tarifs",
+      "status": "seed",
+      "schedule_status": "ok",
+      "last_checked": "2026-08-24T12:00:00+00:00",
+      "last_success": "2026-08-24T12:00:00+00:00",
+      "schedule": {
+        "scolaire": {"lundi": "07:15-13:45 et 16:15-18:30", "mardi": "07:15-08:30, 11:45-13:45 et 16:15-22:00", "mercredi": "07:15-13:45", "jeudi": "07:15-08:15, 11:45-13:45 et 16:15-22:00", "vendredi": "07:15-08:30, 11:45-13:45 et 16:15-18:30", "samedi": "14:00-18:30", "dimanche": "09:00-13:00 et 14:00-18:30"},
+        "petites_vacances": {"lundi": "07:15-08:45 et 10:30-20:30", "mardi": "07:15-08:45 et 10:30-22:00", "mercredi": "07:15-08:45 et 10:30-20:30", "jeudi": "07:15-08:45 et 10:30-22:00", "vendredi": "07:15-08:45 et 10:30-20:30", "samedi": "10:00-13:00 et 14:00-18:30", "dimanche": "09:00-13:00 et 14:00-18:30"},
+        "ete": {"lundi": "07:15-08:45 et 10:30-20:30", "mardi": "10:30-20:30", "mercredi": "07:15-08:45 et 10:30-20:30", "jeudi": "10:30-20:30", "vendredi": "10:30-20:30", "samedi": "10:00-13:00 et 14:00-18:30", "dimanche": "09:00-13:00 et 14:00-18:30"}
+      },
+      "horaires_text": "### Période scolaire\n- Lundi : 07:15-13:45 / 16:15-18:30\n- Mardi : 07:15-08:30 / 11:45-13:45 / 16:15-22:00\n- Mercredi : 07:15-13:45\n- Jeudi : 07:15-08:15 / 11:45-13:45 / 16:15-22:00\n- Vendredi : 07:15-08:30 / 11:45-13:45 / 16:15-18:30\n- Samedi : 14:00-18:30\n- Dimanche & jours fériés : 09:00-13:00 / 14:00-18:30\n\n### Petites vacances (zone B)\n- Lundi/Mercredi/Vendredi : 07:15-08:45 / 10:30-20:30\n- Mardi/Jeudi : 07:15-08:45 / 10:30-22:00\n- Samedi : 10:00-13:00 / 14:00-18:30\n- Dimanche & jours fériés : 09:00-13:00 / 14:00-18:30\n\n### Grandes vacances\n- Lundi/Mercredi : 07:15-08:45 / 10:30-20:30\n- Mardi/Jeudi/Vendredi : 10:30-20:30\n- Samedi : 10:00-13:00 / 14:00-18:30\n- Dimanche & jours fériés : 09:00-13:00 / 14:00-18:30\n\n*Bonnet de bain obligatoire.*",
+      "tarifs_text": "- Entrée simple : 4,80€ (résident) / 6,00€ (extérieur)\n- Entrée réduite (-14 ans, étudiants, PMR) : 3,20€ / 4,50€\n- Moins de 3 ans : gratuit\n- Carte famille (6 mois) : 25,00€ + 2,40€/3,00€ par entrée famille\n- Carte 10 entrées (6 mois) : 32,00€ (résident) / 43,00€ (extérieur)\n- Bébés nageurs (1 séance) : 12,00€ / Aquagym (1 séance) : 12,00€"
+    }
+  ]
+}

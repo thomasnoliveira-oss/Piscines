@@ -1,0 +1,82 @@
+[
+  {
+    "id": "clisson",
+    "name": "Aqua'val Sèvre",
+    "ville": "Clisson",
+    "priority": 1,
+    "phone": "02 40 54 24 56",
+    "adresse": "Esplanade de Klettgau, 44190 Clisson",
+    "official_url": "https://www.piscines-aquaval.fr/nos-piscines/nos-piscines/aquaval-sevre-a-clisson",
+    "horaires_url": "https://www.piscines-aquaval.fr/nos-piscines/nos-piscines/les-horaires",
+    "tarifs_url": "https://www.piscines-aquaval.fr/nos-piscines/nos-piscines/tarifs",
+    "split_keywords": ["Sèvre", "Clisson"],
+    "other_pool_keywords": ["Maine", "Aigrefeuille"]
+  },
+  {
+    "id": "aigrefeuille",
+    "name": "Aqua'val Maine",
+    "ville": "Aigrefeuille-sur-Maine",
+    "priority": 2,
+    "phone": "02 40 54 24 56",
+    "adresse": "Rue du Fief, 44140 Aigrefeuille-sur-Maine",
+    "official_url": "https://www.piscines-aquaval.fr/nos-piscines/nos-piscines/aquaval-maine-a-aigrefeuille-sur-maine",
+    "horaires_url": "https://www.piscines-aquaval.fr/nos-piscines/nos-piscines/les-horaires",
+    "tarifs_url": "https://www.piscines-aquaval.fr/nos-piscines/nos-piscines/tarifs",
+    "split_keywords": ["Maine", "Aigrefeuille"],
+    "other_pool_keywords": ["Sèvre", "Clisson"]
+  },
+  {
+    "id": "vertou",
+    "name": "Piscine municipale de Vertou",
+    "ville": "Vertou",
+    "priority": 3,
+    "phone": "",
+    "adresse": "",
+    "official_url": "https://vertou.horanet.com/sites/piscine-municipale-de-vertou-1/",
+    "horaires_url": "https://vertou.horanet.com/sites/piscine-municipale-de-vertou-1/",
+    "tarifs_url": "https://vertou.horanet.com/sites/piscine-municipale-de-vertou-1/",
+    "combined_page": true,
+    "split_keywords": [],
+    "other_pool_keywords": []
+  },
+  {
+    "id": "vallet",
+    "name": "Naïadolis",
+    "ville": "Vallet",
+    "priority": 4,
+    "phone": "02 51 71 92 12",
+    "adresse": "7 bis Boulevard Evariste Dejoie, 44330 Vallet",
+    "official_url": "https://piscine.cc-sevreloire.fr/",
+    "horaires_url": "https://piscine.cc-sevreloire.fr/horaires/",
+    "tarifs_url": "https://piscine.cc-sevreloire.fr/tarifs/",
+    "split_keywords": ["Naïadolis", "Vallet"],
+    "other_pool_keywords": ["Divaquatic", "Loroux"]
+  },
+  {
+    "id": "loroux",
+    "name": "Divaquatic",
+    "ville": "Le Loroux-Bottereau",
+    "priority": 5,
+    "phone": "02 51 71 92 12",
+    "adresse": "Rue du Square, 44430 Le Loroux-Bottereau",
+    "official_url": "https://piscine.cc-sevreloire.fr/",
+    "horaires_url": "https://piscine.cc-sevreloire.fr/horaires/",
+    "tarifs_url": "https://piscine.cc-sevreloire.fr/tarifs/",
+    "split_keywords": ["Divaquatic", "Loroux"],
+    "other_pool_keywords": ["Naïadolis", "Vallet"]
+  },
+  {
+    "id": "goulaine",
+    "name": "SO.POOL Goulaine",
+    "ville": "Basse-Goulaine",
+    "priority": 6,
+    "phone": "09 71 00 44 00",
+    "adresse": "2 rue de Tasmanie, 44115 Basse-Goulaine",
+    "official_url": "https://www.sopool.fr/",
+    "horaires_url": "https://www.sopool.fr/",
+    "tarifs_url": "https://www.sopool.fr/tarifs",
+    "combined_page": true,
+    "split_keywords": [],
+    "other_pool_keywords": []
+  }
+]
