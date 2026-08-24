@@ -1,0 +1,78 @@
+name: Mise à jour des horaires de piscines
+
+on:
+  schedule:
+    - cron: "0 6,18 * * *"
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installer les dépendances
+        run: pip install -r requirements.txt
+
+      - name: Lancer le scraper
+        run: python scraper.py
+
+      - name: Committer les données si elles ont changé
+        run: |
+          git config user.name "piscines-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if ! git diff --quiet -- data/pools.json; then
+            git add data/pools.json
+            git commit -m "Mise à jour automatique des horaires ($(date -u +'%Y-%m-%d %H:%M UTC'))"
+            git push
+          else
+            echo "Rien à committer, les données n'ont pas changé."
+          fi
+
+  deploy-pages:
+    needs: update-data
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout (dernière version, après le commit éventuel)
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Préparer le dossier à publier
+        run: |
+          mkdir -p _site
+          cp index.html manifest.json icon.png _site/
+          cp -r data _site/
+
+      - name: Configurer GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Uploader l'artefact Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Déployer sur GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
